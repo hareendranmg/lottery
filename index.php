@@ -26,8 +26,8 @@ foreach ($nodeValues as $node) {
 	preg_match('#\((.*?)\)#', $node[1], $match);
 	$lottery_link = $result_url.$match[1].'.pdf';
 	
-	print_r($lottery_name.' - '.$lottery_link);
-	<br />
+// 	print_r($lottery_name.' - '.$lottery_link);
+
 	$sql = "INSERT INTO lottery_details (lottery_name, lottery_link) VALUES ('$lottery_name', '$lottery_link')";
 	$result = $conn->query($sql);
 }
