@@ -1,6 +1,6 @@
 <?php
 require 'vendor/autoload.php';
-// include_once('lottery_connection.php');
+include_once('lottery_connection.php');
 use Symfony\Component\DomCrawler\Crawler;
 
 $client = new \GuzzleHttp\Client();
