@@ -1,6 +1,6 @@
 <?php
         // $conn = new mysqli('localhost', 'root', 'arjun454', 'lottery');
-        $conn = new mysqli('sql100.epizy.com', 'epiz_24557168', '2oHcrXIOg3H', 'epiz_24557168_test_1');
+        $conn = new mysqli('remotemysql.com', '5eNE7lGQpg', 'VbrOzRFkSs', '5eNE7lGQpg');
 	if($conn->connect_error){
 	   die("Connection failed: " . $conn->connect_error);
         } else{
