@@ -3,6 +3,9 @@ require 'vendor/autoload.php';
 include_once('lottery_connection.php');
 use Symfony\Component\DomCrawler\Crawler;
 
+$sql = "DELETE FROM `lottery_details`";
+$query = $conn->query($sql);
+
 $client = new \GuzzleHttp\Client();
 
 $url = "http://103.251.43.52/lottery/weblotteryresult.php";
@@ -26,17 +29,10 @@ foreach ($nodeValues as $node) {
 	preg_match('#\((.*?)\)#', $node[1], $match);
 	$lottery_link = $result_url.$match[1].'.pdf';
 	
-// 	print_r($lottery_name.' - '.$lottery_link);
-
 	$sql = "INSERT INTO lottery_details (lottery_name, lottery_link) VALUES ('$lottery_name', '$lottery_link')";
 	$result = $conn->query($sql);
 }
 
-// $sql = "DELETE FROM `lottery_details`
-//         ORDER BY `lottery_details_id` ASC
-//         LIMIT 10 ";
-
-// $query = $conn->query($sql);
 
 $sql = "SELECT `lottery_name`, `lottery_link`
         FROM `lottery_details`
@@ -57,6 +53,3 @@ while ($row = $query->fetch_assoc()) {
 }
 
 echo (json_encode($lottery_details));
-
-
-
